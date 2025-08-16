@@ -10,8 +10,9 @@ public class NotCasinoContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Account> Accounts { get; set; }
     public DbSet<GameLog> GameLogs { get; set; }
-    public DbSet<Leaderboard> Leaderboards { get; set; }
-    public DbSet<UserStatistics> UserStatistics { get; set; }
+    public DbSet<GameSetting> GameSettings { get; set; }
+    public DbSet<ReloadAccount> ReloadAccounts { get; set; }
+    public DbSet<Server> Servers { get; set; }
 
     public NotCasinoContext(DbContextOptions<NotCasinoContext> options) : base(options)
     {

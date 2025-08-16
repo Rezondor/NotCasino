@@ -1,7 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using TWD.NotCasino.Domain.Core;
 
 namespace TWD.NotCasino.Api;
@@ -16,8 +13,9 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddDbContext<NotCasinoContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddDbContext<NotCasinoContext>(
+            options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+            b => b.MigrationsAssembly("TWD.NotCasino.Domain.Base.Postgres")));
 
         builder.Services.AddCors(options =>
         {

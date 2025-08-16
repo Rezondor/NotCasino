@@ -17,7 +17,7 @@ public class GameSetting : BaseEntity
     /// Тип игры
     /// </summary>
     public GameTypes GameType { get; set; }
-   
+
     /// <summary>
     /// Тип настройки
     /// </summary>

@@ -1,5 +1,4 @@
-﻿using TWD.NotCasino.Core.Enums;
-using TWD.NotCasino.Core.Enums.Games;
+﻿using TWD.NotCasino.Core.Enums.Games;
 using TWD.NotCasino.Core.Models.Base;
 
 namespace TWD.NotCasino.Core.Models;
@@ -35,10 +34,10 @@ public class GameLog : BaseEntity
     public GameTypes GameType { get; set; }
 
     /// <summary>
-    /// Доп информация об игре
+    /// Доп информация об игре (JSON с данными игры (результаты, комбинации и т.д.))
     /// </summary>
-    public string GameData { get; set; } = string.Empty; // JSON с данными игры (результаты, комбинации и т.д.)
-    
+    public string GameData { get; set; } = string.Empty;
+
     /// <summary>
     /// Результат игры
     /// </summary>

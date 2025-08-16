@@ -46,9 +46,4 @@ public class User : BaseEntity
     /// Обновления аккаунтов
     /// </summary>
     public ICollection<ReloadAccount> ReloadAccounts { get; set; } = [];
-
-    /// <summary>
-    /// Лог игр
-    /// </summary>
-    public ICollection<GameLog> GameLogs { get; set; } = [];
 }

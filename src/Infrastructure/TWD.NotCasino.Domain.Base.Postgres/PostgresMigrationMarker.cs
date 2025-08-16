@@ -1,3 +1,3 @@
 ﻿namespace TWD.NotCasino.Domain.Base.Postgres;
 
-public class PostgresMigrationMarker {}
+public class PostgresMigrationMarker { }

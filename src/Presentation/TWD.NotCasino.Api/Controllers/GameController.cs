@@ -7,7 +7,7 @@ namespace TWD.NotCasino.Api.Controllers;
 public class GameController : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> PlayOneArmedBandit([FromQuery]int bet)
+    public async Task<IActionResult> PlayOneArmedBandit([FromQuery] int bet)
     {
         var rand = new Random();
 

@@ -11,7 +11,7 @@ public class Server : BaseEntity
     /// <summary>
     /// Сервер
     /// </summary>
-    public ServerNames Server { get; set; }
+    public ServerNames ServerName { get; set; }
 
     /// <summary>
     /// Количество монет
