@@ -3,13 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Api", "TWD.NotCasino.Api\TWD.NotCasino.Api.csproj", "{0FEA9D25-103C-416E-82F4-F4D6BB41CCD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Api", "src\Presentation\TWD.NotCasino.Api\TWD.NotCasino.Api.csproj", "{0FEA9D25-103C-416E-82F4-F4D6BB41CCD5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8C01AB18-7C4A-4B52-8CA1-4B2972E66DF9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C39F5F7C-2251-4C38-A2F7-E8A4829E3388}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Api.Core", "src\Core\TWD.NotCasino.Api.Core\TWD.NotCasino.Api.Core.csproj", "{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Games.OneArmBandit.Base", "src\Infrastructure\TWD.NotCasino.Games.OneArmBandit.Base\TWD.NotCasino.Games.OneArmBandit.Base.csproj", "{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Games.OneArmBandit.Application", "src\Core\TWD.NotCasino.Games.OneArmBandit.Application\TWD.NotCasino.Games.OneArmBandit.Application.csproj", "{2F741EF2-BD77-4301-A93D-6BF1E83A9392}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Domain.Core", "src\Core\TWD.NotCasino.Domain.Core\TWD.NotCasino.Domain.Core.csproj", "{915D1075-B5F3-4140-90B8-8E19E7236CCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Domain.Base", "src\Infrastructure\TWD.NotCasino.Domain.Base\TWD.NotCasino.Domain.Base.csproj", "{7816EE4D-5F15-4B0D-B603-ABA0355332EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Domain.Base.Postgres", "src\Infrastructure\TWD.NotCasino.Domain.Base.Postgres\TWD.NotCasino.Domain.Base.Postgres.csproj", "{429DCE83-4D78-44D2-8111-BE53832C1144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Core", "src\Core\TWD.NotCasino.Core\TWD.NotCasino.Core.csproj", "{11E978F6-2C11-4E66-B755-85A9FF36D7ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Base", "src\Infrastructure\TWD.NotCasino.Base\TWD.NotCasino.Base.csproj", "{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +37,52 @@ Global
 		{0FEA9D25-103C-416E-82F4-F4D6BB41CCD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FEA9D25-103C-416E-82F4-F4D6BB41CCD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FEA9D25-103C-416E-82F4-F4D6BB41CCD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F741EF2-BD77-4301-A93D-6BF1E83A9392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F741EF2-BD77-4301-A93D-6BF1E83A9392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F741EF2-BD77-4301-A93D-6BF1E83A9392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F741EF2-BD77-4301-A93D-6BF1E83A9392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{915D1075-B5F3-4140-90B8-8E19E7236CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915D1075-B5F3-4140-90B8-8E19E7236CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915D1075-B5F3-4140-90B8-8E19E7236CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915D1075-B5F3-4140-90B8-8E19E7236CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7816EE4D-5F15-4B0D-B603-ABA0355332EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7816EE4D-5F15-4B0D-B603-ABA0355332EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7816EE4D-5F15-4B0D-B603-ABA0355332EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7816EE4D-5F15-4B0D-B603-ABA0355332EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429DCE83-4D78-44D2-8111-BE53832C1144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429DCE83-4D78-44D2-8111-BE53832C1144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429DCE83-4D78-44D2-8111-BE53832C1144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429DCE83-4D78-44D2-8111-BE53832C1144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E978F6-2C11-4E66-B755-85A9FF36D7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E978F6-2C11-4E66-B755-85A9FF36D7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E978F6-2C11-4E66-B755-85A9FF36D7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E978F6-2C11-4E66-B755-85A9FF36D7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0FEA9D25-103C-416E-82F4-F4D6BB41CCD5} = {8C01AB18-7C4A-4B52-8CA1-4B2972E66DF9}
+		{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
+		{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
+		{2F741EF2-BD77-4301-A93D-6BF1E83A9392} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
+		{915D1075-B5F3-4140-90B8-8E19E7236CCD} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
+		{7816EE4D-5F15-4B0D-B603-ABA0355332EC} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
+		{429DCE83-4D78-44D2-8111-BE53832C1144} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
+		{11E978F6-2C11-4E66-B755-85A9FF36D7ED} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
+		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8916B7-953C-440B-9FEC-0477C99E61F0}
