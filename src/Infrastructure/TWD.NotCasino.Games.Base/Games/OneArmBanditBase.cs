@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Games.OneArmBandit.Base.Games;
+﻿namespace TWD.NotCasino.Games.Base.Games;
 
 internal class OneArmBanditBase
 {

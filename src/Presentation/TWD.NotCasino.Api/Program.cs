@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TWD.NotCasino.Domain.Core;
 
@@ -12,6 +13,11 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddMediatR(cfg =>
+        {
+            cfg.RegisterServicesFromAssembly(typeof(TWD.NotCasino.Base.MediatRMarker).Assembly);
+            cfg.RegisterServicesFromAssembly(typeof(TWD.NotCasino.Games.Base.MediatRMarker).Assembly);
+        });
 
         builder.Services.AddDbContext<NotCasinoContext>(
             options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),

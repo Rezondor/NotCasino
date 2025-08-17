@@ -26,8 +26,6 @@ public class GameController : ControllerBase
 
         var win = bet * multiplier;
 
-
-
         return Ok(win);
     }
 }
