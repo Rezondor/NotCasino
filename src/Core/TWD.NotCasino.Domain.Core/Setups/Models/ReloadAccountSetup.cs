@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TWD.NotCasino.Core.Models;
+using TWD.NotCasino.Core.Entities;
 
 namespace TWD.NotCasino.Domain.Core.Setups.Models;
 

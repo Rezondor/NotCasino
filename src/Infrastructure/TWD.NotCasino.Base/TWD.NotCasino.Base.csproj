@@ -10,4 +10,8 @@
     <PackageReference Include="MediatR" Version="13.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\TWD.NotCasino.Application\TWD.NotCasino.Application.csproj" />
+  </ItemGroup>
+
 </Project>

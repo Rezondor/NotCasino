@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Core.Models.Base;
+﻿namespace TWD.NotCasino.Core.Entities.Base;
 
 /// <summary>
 /// Базовая сущность с датами создания и изменения

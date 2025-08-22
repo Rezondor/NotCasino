@@ -2,4 +2,5 @@
 
 public interface INotCasinoRepositoryManager
 {
+    public Task SaveChangesAsync();
 }

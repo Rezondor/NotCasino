@@ -1,7 +1,7 @@
-﻿using TWD.NotCasino.Core.Enums.Games;
-using TWD.NotCasino.Core.Models.Base;
+﻿using TWD.NotCasino.Core.Entities.Base;
+using TWD.NotCasino.Core.Enums.Games;
 
-namespace TWD.NotCasino.Core.Models;
+namespace TWD.NotCasino.Core.Entities;
 
 /// <summary>
 /// Лог игры

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TWD.NotCasino.Core.Models;
-using TWD.NotCasino.Core.Models.Base;
+using TWD.NotCasino.Core.Entities;
+using TWD.NotCasino.Core.Entities.Base;
 using TWD.NotCasino.Domain.Core.Setups;
 
 namespace TWD.NotCasino.Domain.Core;
@@ -21,6 +21,11 @@ public class NotCasinoContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         Setuper.SetupModels(modelBuilder);
+    }
+
+    public override int SaveChanges()
+    {
+        return base.SaveChanges();
     }
 
     private void UpdateTimestamps()
