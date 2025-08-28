@@ -1,6 +1,6 @@
-﻿namespace TWD.NotCasino.Api.Core.Dtos.User;
+﻿namespace TWD.NotCasino.Api.Core.Requests.User;
 
-public class LoginDto
+public class LoginRequest
 {
     /// <summary>
     /// Почта

@@ -1,11 +1,8 @@
-﻿using TWD.NotCasino.Core.Enums.User;
+﻿using TWD.NotCasino.Api.Core.Enums.User;
 
-namespace TWD.NotCasino.Core.Models.User;
+namespace TWD.NotCasino.Api.Core.Responses.User;
 
-/// <summary>
-/// Поверхностная информация о пользователе
-/// </summary>
-public class UserInfo
+public class UserInfoResponse
 {
     /// <summary>
     /// Id
@@ -26,16 +23,6 @@ public class UserInfo
     /// Почта
     /// </summary>
     public string Email { get; set; } = null!;
-
-    /// <summary>
-    /// Почта
-    /// </summary>
-    public string Password { get; set; } = null!;
-
-    /// <summary>
-    /// Удалён ли
-    /// </summary>
-    public bool IsDelete { get; set; } = false;
 
     /// <summary>
     /// Заблокирован ли

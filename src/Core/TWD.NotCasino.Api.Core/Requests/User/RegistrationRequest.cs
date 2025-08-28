@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TWD.NotCasino.Api.Core.Dtos.User;
+namespace TWD.NotCasino.Api.Core.Requests.User;
 
 /// <summary>
 /// Регистрационная модель 
 /// </summary>
-public class RegistrationDto
+public class RegistrationRequest
 {
     /// <summary>
     /// Никнейм
@@ -30,4 +30,9 @@ public class RegistrationDto
     /// Хеш пароль
     /// </summary>
     public string Password { get; set; } = null!;
+
+    /// <summary>
+    /// Хеш пароль повторение
+    /// </summary>
+    public string PasswordReplay { get; set; } = null!;
 }

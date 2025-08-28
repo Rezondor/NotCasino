@@ -2,5 +2,6 @@
 
 public interface INotCasinoRepositoryManager
 {
-    public Task SaveChangesAsync();
+    public IUserRepository UserRepository { get; }
+    public Task SaveChangesAsync(CancellationToken cancellationToken);
 }

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
     <PackageReference Include="MediatR" Version="13.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8" />
@@ -21,6 +22,7 @@
     <ProjectReference Include="..\..\Core\TWD.NotCasino.Application\TWD.NotCasino.Application.csproj" />
     <ProjectReference Include="..\..\Core\TWD.NotCasino.Core\TWD.NotCasino.Core.csproj" />
     <ProjectReference Include="..\..\Core\TWD.NotCasino.Domain.Core\TWD.NotCasino.Domain.Core.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\TWD.NotCasino.Api.Base\TWD.NotCasino.Api.Base.csproj" />
     <ProjectReference Include="..\..\Infrastructure\TWD.NotCasino.Base\TWD.NotCasino.Base.csproj" />
     <ProjectReference Include="..\..\Core\TWD.NotCasino.Games.Application\TWD.NotCasino.Game.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\TWD.NotCasino.Domain.Base.Postgres\TWD.NotCasino.Domain.Base.Postgres.csproj" />

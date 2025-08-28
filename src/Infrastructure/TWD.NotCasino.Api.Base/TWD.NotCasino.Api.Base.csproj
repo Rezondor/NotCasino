@@ -7,14 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\TWD.NotCasino.Api.Core\TWD.NotCasino.Api.Core.csproj" />
     <ProjectReference Include="..\..\Core\TWD.NotCasino.Application\TWD.NotCasino.Application.csproj" />
     <ProjectReference Include="..\..\Core\TWD.NotCasino.Core\TWD.NotCasino.Core.csproj" />
-    <ProjectReference Include="..\..\Core\TWD.NotCasino.Domain.Core\TWD.NotCasino.Domain.Core.csproj" />
-    <ProjectReference Include="..\TWD.NotCasino.Domain.Base\TWD.NotCasino.Domain.Base.csproj" />
+    <ProjectReference Include="..\TWD.NotCasino.Base\TWD.NotCasino.Base.csproj" />
   </ItemGroup>
 
 </Project>

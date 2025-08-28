@@ -1,4 +1,5 @@
 ﻿using TWD.NotCasino.Core.Entities.Base;
+using TWD.NotCasino.Core.Enums.User;
 
 namespace TWD.NotCasino.Core.Entities;
 
@@ -26,6 +27,11 @@ public class User : BaseEntity
     /// Хеш пароль
     /// </summary>
     public string Password { get; set; } = null!;
+
+    /// <summary>
+    /// Роль пользователя
+    /// </summary>
+    public UserRoles Role { get; set; } = UserRoles.None;
 
     /// <summary>
     /// Удалён ли

@@ -1,5 +1,10 @@
-﻿namespace TWD.NotCasino.Application.Results.User;
+﻿using TWD.NotCasino.Core.Enums.User;
 
+namespace TWD.NotCasino.Application.Results.User;
+
+/// <summary>
+/// Информация о пользователе
+/// </summary>
 public class UserResult
 {
     /// <summary>
@@ -23,11 +28,6 @@ public class UserResult
     public string Email { get; set; } = null!;
 
     /// <summary>
-    /// Удалён ли
-    /// </summary>
-    public bool IsDelete { get; set; } = false;
-
-    /// <summary>
     /// Заблокирован ли
     /// </summary>
     public bool IsBlocked { get; set; } = false;
@@ -36,4 +36,9 @@ public class UserResult
     /// Текущее количество монет
     /// </summary>
     public decimal Coins { get; set; } = 0;
+
+    /// <summary>
+    /// Роль пользователя
+    /// </summary>
+    public UserRoles Role { get; set; } = UserRoles.None;
 }

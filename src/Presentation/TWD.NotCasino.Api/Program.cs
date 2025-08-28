@@ -1,9 +1,15 @@
-using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TWD.NotCasino.Api.Base.Services;
+using TWD.NotCasino.Api.Core.Dtos;
+using TWD.NotCasino.Api.Core.Requests.User;
+using TWD.NotCasino.Api.Core.Services;
+using TWD.NotCasino.Api.Mappings;
 using TWD.NotCasino.Core.Entities;
+using TWD.NotCasino.Domain.Base;
 using TWD.NotCasino.Domain.Core;
+using TWD.NotCasino.Domain.Core.Repositories;
 
 namespace TWD.NotCasino.Api;
 
@@ -15,14 +21,22 @@ public class Program
 
         builder.Services.AddControllers();
 
-        builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+        builder.Services.AddAutoMapper(cfg =>
+        {
+            cfg.AddProfile<RequestProfile>();
+        });
+
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<IPasswordHasher<ForHashModel>, PasswordHasher<ForHashModel>>();
+        builder.Services.AddScoped<IAuthService, AuthService>();
+        builder.Services.AddScoped<INotCasinoRepositoryManager, NotCasinoRepositoryManager>();
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddMediatR(cfg =>
         {
-            cfg.RegisterServicesFromAssembly(typeof(TWD.NotCasino.Base.MediatRMarker).Assembly);
-            cfg.RegisterServicesFromAssembly(typeof(TWD.NotCasino.Games.Base.MediatRMarker).Assembly);
+            cfg.RegisterServicesFromAssembly(typeof(NotCasino.Base.MediatRMarker).Assembly);
+            cfg.RegisterServicesFromAssembly(typeof(NotCasino.Games.Base.MediatRMarker).Assembly);
         });
 
         builder.Services

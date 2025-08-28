@@ -23,11 +23,6 @@ public class NotCasinoContext : DbContext
         Setuper.SetupModels(modelBuilder);
     }
 
-    public override int SaveChanges()
-    {
-        return base.SaveChanges();
-    }
-
     private void UpdateTimestamps()
     {
         var entries = ChangeTracker.Entries<DateEntity>();

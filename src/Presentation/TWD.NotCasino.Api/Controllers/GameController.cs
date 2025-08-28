@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using TWD.NotCasino.Api.Core.Enums.User;
 
 namespace TWD.NotCasino.Api.Controllers;
 
 [Route("api/[controller]")]
+[Authorize(Roles = nameof(UserRoles.Base))]
 [ApiController]
 public class GameController : ControllerBase
 {
