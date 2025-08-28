@@ -1,9 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\TWD.NotCasino.Application\TWD.NotCasino.Application.csproj" />
+    <ProjectReference Include="..\..\Core\TWD.NotCasino.Core\TWD.NotCasino.Core.csproj" />
+    <ProjectReference Include="..\..\Core\TWD.NotCasino.Domain.Core\TWD.NotCasino.Domain.Core.csproj" />
+    <ProjectReference Include="..\TWD.NotCasino.Domain.Base\TWD.NotCasino.Domain.Base.csproj" />
+  </ItemGroup>
 
 </Project>

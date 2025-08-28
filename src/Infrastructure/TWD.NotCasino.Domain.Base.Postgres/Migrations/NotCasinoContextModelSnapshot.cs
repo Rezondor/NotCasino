@@ -22,7 +22,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.Account", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Account", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.GameLog", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameLog", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,7 +104,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.GameSetting", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameSetting", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,7 +140,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.ReloadAccount", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.ReloadAccount", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -169,7 +169,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.Server", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Server", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -194,7 +194,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.User", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -231,6 +231,9 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         .HasColumnType("text")
                         .HasComment("Хеш пароль");
 
+                    b.Property<byte>("Role")
+                        .HasColumnType("smallint");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users", t =>
@@ -239,26 +242,26 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.Account", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Account", b =>
                 {
-                    b.HasOne("TWD.NotCasino.Core.Models.User", "User")
+                    b.HasOne("TWD.NotCasino.Core.Entities.User", "User")
                         .WithOne("Account")
-                        .HasForeignKey("TWD.NotCasino.Core.Models.Account", "UserId")
+                        .HasForeignKey("TWD.NotCasino.Core.Entities.Account", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.GameLog", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameLog", b =>
                 {
-                    b.HasOne("TWD.NotCasino.Core.Models.ReloadAccount", "ReloadAccount")
+                    b.HasOne("TWD.NotCasino.Core.Entities.ReloadAccount", "ReloadAccount")
                         .WithMany()
                         .HasForeignKey("ReloadAccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TWD.NotCasino.Core.Models.Server", "Server")
+                    b.HasOne("TWD.NotCasino.Core.Entities.Server", "Server")
                         .WithMany("GameLogs")
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -269,9 +272,9 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.Navigation("Server");
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.GameSetting", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameSetting", b =>
                 {
-                    b.HasOne("TWD.NotCasino.Core.Models.Server", "Server")
+                    b.HasOne("TWD.NotCasino.Core.Entities.Server", "Server")
                         .WithMany("GameSettings")
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -280,9 +283,9 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.Navigation("Server");
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.ReloadAccount", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.ReloadAccount", b =>
                 {
-                    b.HasOne("TWD.NotCasino.Core.Models.User", "User")
+                    b.HasOne("TWD.NotCasino.Core.Entities.User", "User")
                         .WithMany("ReloadAccounts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -291,14 +294,14 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.Server", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Server", b =>
                 {
                     b.Navigation("GameLogs");
 
                     b.Navigation("GameSettings");
                 });
 
-            modelBuilder.Entity("TWD.NotCasino.Core.Models.User", b =>
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.User", b =>
                 {
                     b.Navigation("Account")
                         .IsRequired();

@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C39F5F7C-2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Api.Core", "src\Core\TWD.NotCasino.Api.Core\TWD.NotCasino.Api.Core.csproj", "{52A6CF68-5C89-45C1-8752-4A5FEC1EF2AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Games.OneArmBandit.Base", "src\Infrastructure\TWD.NotCasino.Games.OneArmBandit.Base\TWD.NotCasino.Games.OneArmBandit.Base.csproj", "{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Games.Base", "src\Infrastructure\TWD.NotCasino.Games.Base\TWD.NotCasino.Games.Base.csproj", "{14C2A180-9044-405D-9D9E-4FDDE4DE3D4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Games.OneArmBandit.Application", "src\Core\TWD.NotCasino.Games.OneArmBandit.Application\TWD.NotCasino.Games.OneArmBandit.Application.csproj", "{2F741EF2-BD77-4301-A93D-6BF1E83A9392}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Game.Application", "src\Core\TWD.NotCasino.Games.Application\TWD.NotCasino.Game.Application.csproj", "{2F741EF2-BD77-4301-A93D-6BF1E83A9392}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TWD.NotCasino.Domain.Core", "src\Core\TWD.NotCasino.Domain.Core\TWD.NotCasino.Domain.Core.csproj", "{915D1075-B5F3-4140-90B8-8E19E7236CCD}"
 EndProject
@@ -26,6 +26,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Core", "src\Core\TWD.NotCasino.Core\TWD.NotCasino.Core.csproj", "{11E978F6-2C11-4E66-B755-85A9FF36D7ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Base", "src\Infrastructure\TWD.NotCasino.Base\TWD.NotCasino.Base.csproj", "{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Application", "src\Core\TWD.NotCasino.Application\TWD.NotCasino.Application.csproj", "{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Api.Base", "src\Infrastructure\TWD.NotCasino.Api.Base\TWD.NotCasino.Api.Base.csproj", "{838957AF-A9E2-42D7-A95C-46397811E4DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +95,8 @@ Global
 		{429DCE83-4D78-44D2-8111-BE53832C1144} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
 		{11E978F6-2C11-4E66-B755-85A9FF36D7ED} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
 		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
+		{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
+		{838957AF-A9E2-42D7-A95C-46397811E4DF} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8916B7-953C-440B-9FEC-0477C99E61F0}
