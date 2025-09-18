@@ -9,6 +9,8 @@ public class AccountSetup : ISetup
 
     public void Setup(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Account>().Property(x=>x.Coins).HasDefaultValue(0.01m);
+
         //Comments
         modelBuilder.Entity<Account>().ToTable(t => t.HasComment("Аккаунты пользователя"));
 

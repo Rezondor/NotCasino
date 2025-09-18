@@ -27,7 +27,7 @@ public class AuthController(IAuthService authService) : ControllerBase
     /// </summary>
     [HttpPost("login")]
     [ProducesResponseType(typeof(UserInfoResponse), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Login([FromBody] Core.Requests.User.LoginRequest req, CancellationToken cancellationToken)
+    public async Task<IActionResult> Login([FromBody] LoginRequest req, CancellationToken cancellationToken)
     {
         var user = await authService.LoginAsync(req);
         return Ok(user);

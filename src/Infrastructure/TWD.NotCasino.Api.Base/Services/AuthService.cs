@@ -13,6 +13,7 @@ using TWD.NotCasino.Api.Core.Services;
 using TWD.NotCasino.Application.Commands.User;
 using TWD.NotCasino.Application.Queries.User;
 using TWD.NotCasino.Application.Results.User;
+using TWD.NotCasino.Core.Entities;
 
 namespace TWD.NotCasino.Api.Base.Services;
 
@@ -38,9 +39,11 @@ public class AuthService(
         var command = mapper.Map<AddUserCommand>(registrationRequest);
         var user = await mediator.Send(command);
 
-        await SignInAsync(user, true);
+        var response = mapper.Map<UserInfoResponse>(user);
 
-        return mapper.Map<UserInfoResponse>(user);
+        await SignInAsync(response, true);
+
+        return response;
     }
 
     public async Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest)
@@ -53,9 +56,16 @@ public class AuthService(
             throw new Exception("Неверный пароль");
         }
 
-        await SignInAsync(user, true);
+        if (user.IsBlocked)
+        {
+            throw new Exception("Пользователь заблокирован");
+        }
 
-        return mapper.Map<UserInfoResponse>(user);
+        var response = mapper.Map<UserInfoResponse>(user);
+
+        await SignInAsync(response, true);
+
+        return response;
     }
 
     public async Task LogoutAsync()
@@ -63,14 +73,14 @@ public class AuthService(
         await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 
-    private async Task SignInAsync(UserResult user, bool remember)
+    private async Task SignInAsync(UserInfoResponse user, bool remember)
     {
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new(ClaimTypes.Name, user.NickName),
             new(ClaimTypes.Email, user.Email),
-            new(ClaimTypes.Role, user.Role.ToString())
+            new(ClaimTypes.Role, user.Role.ToString()),
         };
 
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

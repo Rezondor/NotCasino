@@ -4,7 +4,7 @@ using TWD.NotCasino.Application.Results.User;
 using TWD.NotCasino.Core.Entities;
 using TWD.NotCasino.Domain.Core.Repositories;
 
-namespace TWD.NotCasino.Base.Commands;
+namespace TWD.NotCasino.Base.Commands.Users;
 
 
 /// <summary>
@@ -31,19 +31,16 @@ public class AddUserCommandHandler(INotCasinoRepositoryManager repositoryManager
             NickName = request.NickName,
             Account = new Account
             {
-                Coins = 10000,
+                Coins = repositoryManager.UserRepository.StartMoney,
                 LosesMoneyCount = 0,
             },
             ReloadAccounts =
             [
-                new ReloadAccount
-                {
-                    CreateDate = DateTime.UtcNow
-                }
+                new ReloadAccount()
             ]
         };
 
-        await repositoryManager.UserRepository.InsertUserAsync(user,cancellationToken);
+        await repositoryManager.UserRepository.InsertUserAsync(user, cancellationToken);
         await repositoryManager.SaveChangesAsync(cancellationToken);
 
         return new UserResult

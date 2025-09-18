@@ -19,4 +19,8 @@
     <ProjectReference Include="..\TWD.NotCasino.Base\TWD.NotCasino.Base.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

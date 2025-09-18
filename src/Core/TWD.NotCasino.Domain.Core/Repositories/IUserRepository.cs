@@ -9,7 +9,12 @@ namespace TWD.NotCasino.Domain.Core.Repositories;
 public interface IUserRepository
 {
     /// <summary>
-    /// Добавление пользователя
+    /// Количество стартовых монет
+    /// </summary>
+    public decimal StartMoney { get; }
+
+    /// <summary>
+    /// Добавление пользователя вместе с аккаунтом и первым обновлением аккаунта
     /// </summary>
     public Task InsertUserAsync(User user, CancellationToken cancellationToken);
 
@@ -30,4 +35,10 @@ public interface IUserRepository
     /// </summary>
     /// <returns>Поверхностная информация о пользователе или null если не найден</returns>
     public Task<User?> GetUserByIdAsync(long id, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Получение пользователя по id вместе с аккаунтом и перезагрузками
+    /// </summary>
+    /// <returns>Поверхностная информация о пользователе или null если не найден</returns>
+    public Task<User> GetUserForUpdateAsync(long id, CancellationToken cancellationToken);
 }
