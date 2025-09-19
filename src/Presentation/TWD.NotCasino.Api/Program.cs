@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TWD.NotCasino.Api.Base.Services;
 using TWD.NotCasino.Api.Core.Dtos;
-using TWD.NotCasino.Api.Core.Requests.User;
 using TWD.NotCasino.Api.Core.Services;
+using TWD.NotCasino.Api.Helpers.Extensions;
 using TWD.NotCasino.Api.Mappings;
-using TWD.NotCasino.Core.Entities;
 using TWD.NotCasino.Domain.Base;
 using TWD.NotCasino.Domain.Core;
 using TWD.NotCasino.Domain.Core.Repositories;
@@ -27,7 +26,9 @@ public class Program
         });
 
         builder.Services.AddHttpContextAccessor();
+
         builder.Services.AddScoped<IPasswordHasher<ForHashModel>, PasswordHasher<ForHashModel>>();
+        builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<INotCasinoRepositoryManager, NotCasinoRepositoryManager>();
 
@@ -43,12 +44,12 @@ public class Program
             .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(o =>
             {
-                o.Cookie.Name = "auth.session";
+                o.Cookie.Name = "auth.session.v1";
                 o.Cookie.HttpOnly = true;
-                o.Cookie.SameSite = SameSiteMode.Lax; // ≈сли фронт на другом домене Ч см. ниже заметку
+                o.Cookie.SameSite = SameSiteMode.Lax;
                 o.Cookie.SecurePolicy = CookieSecurePolicy.Always; // в проде под HTTPS
-                o.LoginPath = "/api/auth/login";   // не об€зателен дл€ API, но пусть будет
-                o.LogoutPath = "/api/auth/logout"; // тоже не об€зателен
+                o.LoginPath = "/api/auth/login";
+                o.LogoutPath = "/api/auth/logout";
                 o.SlidingExpiration = true;
                 o.ExpireTimeSpan = TimeSpan.FromDays(14);
             });
@@ -74,6 +75,8 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseExceptionHandling();
 
         app.UseHttpsRedirection();
         app.UseCors("AllowAll");
