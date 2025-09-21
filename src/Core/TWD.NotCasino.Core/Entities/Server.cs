@@ -19,12 +19,7 @@ public class Server : BaseEntity
     public decimal Coins { get; set; }
 
     /// <summary>
-    /// Логи игр
-    /// </summary>
-    public ICollection<GameLog> GameLogs { get; set; } = [];
-
-    /// <summary>
     /// Настройки игр
     /// </summary>
-    public ICollection<GameSetting> GameSettings { get; set; } = [];
+    public ICollection<Game> Games { get; set; } = [];
 }

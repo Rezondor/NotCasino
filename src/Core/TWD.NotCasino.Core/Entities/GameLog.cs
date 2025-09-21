@@ -14,24 +14,19 @@ public class GameLog : BaseEntity
     public long ReloadAccountId { get; set; }
 
     /// <summary>
-    /// Id сервера
+    /// Id игры
     /// </summary>
-    public long ServerId { get; set; }
+    public long GameId { get; set; }
 
     /// <summary>
     /// Ставка
     /// </summary>
-    public int Bet { get; set; }
+    public decimal Bet { get; set; }
 
     /// <summary>
     /// Выигрыш
     /// </summary>
-    public int Win { get; set; }
-
-    /// <summary>
-    /// Тип игры
-    /// </summary>
-    public GameTypes GameType { get; set; }
+    public decimal Win { get; set; }
 
     /// <summary>
     /// Доп информация об игре (JSON с данными игры (результаты, комбинации и т.д.))
@@ -44,12 +39,12 @@ public class GameLog : BaseEntity
     public GameResults Result { get; set; }
 
     /// <summary>
+    /// Игра
+    /// </summary>
+    public Game Game { get; set; } = null!;
+
+    /// <summary>
     /// Обновление аккаунта
     /// </summary>
     public ReloadAccount ReloadAccount { get; set; } = null!;
-
-    /// <summary>
-    /// Сервер
-    /// </summary>
-    public Server Server { get; set; } = null!;
 }

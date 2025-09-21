@@ -48,7 +48,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Accounts", t =>
+                    b.ToTable("Accounts", null, t =>
                         {
                             t.HasComment("Аккаунты пользователя");
                         });
@@ -98,7 +98,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("GameLogs", t =>
+                    b.ToTable("GameLogs", null, t =>
                         {
                             t.HasComment("Логи игр");
                         });
@@ -134,7 +134,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("GameSettings", t =>
+                    b.ToTable("GameSettings", null, t =>
                         {
                             t.HasComment("Настройки игр");
                         });
@@ -163,7 +163,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ReloadAccounts", t =>
+                    b.ToTable("ReloadAccounts", null, t =>
                         {
                             t.HasComment("Обновления аккаунтов");
                         });
@@ -188,7 +188,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Servers", t =>
+                    b.ToTable("Servers", null, t =>
                         {
                             t.HasComment("Настройки серверов");
                         });
@@ -236,7 +236,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", t =>
+                    b.ToTable("Users", null, t =>
                         {
                             t.HasComment("Пользователи");
                         });
