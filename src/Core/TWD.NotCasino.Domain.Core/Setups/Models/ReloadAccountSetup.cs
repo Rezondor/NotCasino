@@ -9,7 +9,6 @@ public class ReloadAccountSetup : ISetup
 
     public void Setup(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ReloadAccount>().Property(x => x.CreateDate).HasDefaultValue(DateTime.UtcNow);
         //Comments
         modelBuilder.Entity<ReloadAccount>().ToTable(t => t.HasComment("Обновления аккаунтов"));
 
