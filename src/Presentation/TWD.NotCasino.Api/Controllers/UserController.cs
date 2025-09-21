@@ -11,7 +11,7 @@ namespace TWD.NotCasino.Api.Controllers;
 [Authorize]
 public class UserController(ICurrentUserService currentUserService, IMediator mediator) : ControllerBase
 {
-    [HttpPost]
+    [HttpPost(nameof(ReloadUserBalance))]
     public async Task<IActionResult> ReloadUserBalance()
     {
         await mediator.Send(new ReloadUserBalanceCommand

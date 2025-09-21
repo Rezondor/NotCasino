@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TWD.NotCasino.Domain.Core;
@@ -11,9 +12,11 @@ using TWD.NotCasino.Domain.Core;
 namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 {
     [DbContext(typeof(NotCasinoContext))]
-    partial class NotCasinoContextModelSnapshot : ModelSnapshot
+    [Migration("20250919201737_AddDefaultValue")]
+    partial class AddDefaultValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +53,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Accounts", null, t =>
+                    b.ToTable("Accounts", t =>
                         {
                             t.HasComment("Аккаунты пользователя");
                         });
@@ -100,7 +103,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("GameLogs", null, t =>
+                    b.ToTable("GameLogs", t =>
                         {
                             t.HasComment("Логи игр");
                         });
@@ -136,7 +139,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("GameSettings", null, t =>
+                    b.ToTable("GameSettings", t =>
                         {
                             t.HasComment("Настройки игр");
                         });
@@ -165,7 +168,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ReloadAccounts", null, t =>
+                    b.ToTable("ReloadAccounts", t =>
                         {
                             t.HasComment("Обновления аккаунтов");
                         });
@@ -190,7 +193,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Servers", null, t =>
+                    b.ToTable("Servers", t =>
                         {
                             t.HasComment("Настройки серверов");
                         });
@@ -238,7 +241,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", null, t =>
+                    b.ToTable("Users", t =>
                         {
                             t.HasComment("Пользователи");
                         });
