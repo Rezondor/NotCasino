@@ -5,7 +5,7 @@ namespace TWD.NotCasino.Api.Core.Services;
 
 public interface IAuthService
 {
-    public Task<UserInfoResponse> RegisterAsync(RegistrationRequest registrationRequest);
-    public Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest);
+    public Task<UserInfoResponse> RegisterAsync(RegistrationRequest registrationRequest, CancellationToken cancellationToken);
+    public Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest, CancellationToken cancellationToken);
     public Task LogoutAsync();
 }

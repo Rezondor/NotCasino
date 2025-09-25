@@ -34,26 +34,26 @@ public class GameController : ControllerBase
 
     [HttpPost(nameof(Add))]
     [Authorize(Roles = nameof(UserRoles.Admin))]
-    public async Task<IActionResult> Add()
+    public async Task<IActionResult> Add(CancellationToken cancellationToken)
     {
         return Ok();
     }
 
     [HttpGet(nameof(GetAllByServer))]
-    public async Task<IActionResult> GetAllByServer()
+    public async Task<IActionResult> GetAllByServer(CancellationToken cancellationToken)
     {
         return Ok();
     }
 
     //TODO: Id игры, Ставка, доп данные (на подобии на какую клетку поставил и тд) (Парсить в нужной игре )
     [HttpGet(nameof(Play))]
-    public async Task<IActionResult> Play()
+    public async Task<IActionResult> Play(CancellationToken cancellationToken)
     {
         return Ok();
     }
 
     [HttpGet(nameof(GetRulesByGameId))]
-    public async Task<IActionResult> GetRulesByGameId(long gameId)
+    public async Task<IActionResult> GetRulesByGameId(long gameId, CancellationToken cancellationToken)
     {
         return Ok();
     }

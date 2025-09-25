@@ -15,7 +15,7 @@ public class ServerRepository(NotCasinoContext context) : IServerRepository
             Coins = coins,
         };
 
-        await context.Servers.AddAsync(newServer);
+        await context.Servers.AddAsync(newServer, cancellationToken);
         return newServer;
     }
 

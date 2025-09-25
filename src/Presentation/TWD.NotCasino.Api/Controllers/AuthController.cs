@@ -18,7 +18,7 @@ public class AuthController(IAuthService authService) : ControllerBase
     [ProducesResponseType(typeof(UserInfoResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Register([FromBody] RegistrationRequest req, CancellationToken cancellationToken)
     {
-        var user = await authService.RegisterAsync(req);
+        var user = await authService.RegisterAsync(req, cancellationToken);
         return Ok(user);
     }
 
@@ -29,7 +29,7 @@ public class AuthController(IAuthService authService) : ControllerBase
     [ProducesResponseType(typeof(UserInfoResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Login([FromBody] LoginRequest req, CancellationToken cancellationToken)
     {
-        var user = await authService.LoginAsync(req);
+        var user = await authService.LoginAsync(req, cancellationToken);
         return Ok(user);
     }
 

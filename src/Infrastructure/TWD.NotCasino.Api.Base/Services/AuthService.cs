@@ -27,7 +27,7 @@ public class AuthService(
     private readonly static string _passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$";
     private readonly HttpContext httpContext = httpContextAccessor.HttpContext;
 
-    public async Task<UserInfoResponse> RegisterAsync(RegistrationRequest registrationRequest)
+    public async Task<UserInfoResponse> RegisterAsync(RegistrationRequest registrationRequest, CancellationToken cancellationToken)
     {
         if (!ValidateRegisterRequest(registrationRequest))
         {
@@ -37,7 +37,7 @@ public class AuthService(
         PrepareRequest(registrationRequest);
 
         var command = mapper.Map<AddUserCommand>(registrationRequest);
-        var user = await mediator.Send(command);
+        var user = await mediator.Send(command, cancellationToken);
 
         var response = mapper.Map<UserInfoResponse>(user);
 
@@ -46,10 +46,10 @@ public class AuthService(
         return response;
     }
 
-    public async Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest)
+    public async Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest, CancellationToken cancellationToken)
     {
         var command = mapper.Map<GetUserWithPasswordQuery>(loginRequest);
-        var user = await mediator.Send(command);
+        var user = await mediator.Send(command, cancellationToken);
 
         if (!CheckPassword(loginRequest, user.Password))
         {
