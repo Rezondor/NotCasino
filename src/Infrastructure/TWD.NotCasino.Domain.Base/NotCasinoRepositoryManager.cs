@@ -10,6 +10,8 @@ namespace TWD.NotCasino.Domain.Base;
 public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRepositoryManager
 {
     private IUserRepository? _userRepository = null;
+    private IServerRepository? _serverRepository = null;
+
     public IUserRepository UserRepository { 
         get 
         { 
@@ -17,8 +19,18 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
         } 
     }
 
+    public IServerRepository ServerRepository { 
+        get 
+        { 
+            return _serverRepository ??= new ServerRepository(context); 
+        } 
+    }
+
     private IDbContextTransaction? _transaction = null;
 
+    /// <summary>
+    /// Открытие транзакции
+    /// </summary>
     public async Task StartTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default)
     {
         if (_transaction != null)
@@ -27,6 +39,9 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
         _transaction = await context.Database.BeginTransactionAsync(isolationLevel, cancellationToken);
     }
 
+    /// <summary>
+    /// Коммит транзакции
+    /// </summary>
     public async Task CommitTransactionAsync(CancellationToken cancellationToken)
     {
         if (_transaction == null) 
@@ -37,6 +52,9 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
         _transaction = null;
     }
 
+    /// <summary>
+    /// Откатывание транзакции
+    /// </summary>
     public async Task RollbackTransactionAsync(CancellationToken cancellationToken)
     {
         if (_transaction == null)
@@ -47,6 +65,9 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
         _transaction = null;
     }
 
+    /// <summary>
+    /// Сохранение изменений 
+    /// </summary>
     public async Task SaveChangesAsync(CancellationToken cancellationToken)
     {
         await context.SaveChangesAsync(cancellationToken);

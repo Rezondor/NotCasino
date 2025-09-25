@@ -3,7 +3,7 @@ using TWD.NotCasino.Application.Queries.User;
 using TWD.NotCasino.Application.Results.User;
 using TWD.NotCasino.Domain.Core.Repositories;
 
-namespace TWD.NotCasino.Base.Queries;
+namespace TWD.NotCasino.Base.Queries.Users;
 
 /// <summary>
 /// Получение пользователя по логину

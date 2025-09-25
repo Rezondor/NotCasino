@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TWD.NotCasino.Api.Base.Services;
-using TWD.NotCasino.Api.Core.Dtos;
+using TWD.NotCasino.Api.Core.Dtos.Users;
 using TWD.NotCasino.Api.Core.Services;
 using TWD.NotCasino.Api.Helpers.Extensions;
 using TWD.NotCasino.Api.Mappings;

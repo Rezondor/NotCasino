@@ -5,7 +5,7 @@ using TWD.NotCasino.Api.Core.Enums.User;
 namespace TWD.NotCasino.Api.Controllers;
 
 [Route("api/[controller]")]
-[Authorize(Roles = nameof(UserRoles.Base))]
+[Authorize]
 [ApiController]
 public class GameController : ControllerBase
 {
@@ -30,5 +30,31 @@ public class GameController : ControllerBase
         var win = bet * multiplier;
 
         return Ok(win);
+    }
+
+    [HttpPost(nameof(Add))]
+    [Authorize(Roles = nameof(UserRoles.Admin))]
+    public async Task<IActionResult> Add()
+    {
+        return Ok();
+    }
+
+    [HttpGet(nameof(GetAllByServer))]
+    public async Task<IActionResult> GetAllByServer()
+    {
+        return Ok();
+    }
+
+    //TODO: Id игры, Ставка, доп данные (на подобии на какую клетку поставил и тд) (Парсить в нужной игре )
+    [HttpGet(nameof(Play))]
+    public async Task<IActionResult> Play()
+    {
+        return Ok();
+    }
+
+    [HttpGet(nameof(GetRulesByGameId))]
+    public async Task<IActionResult> GetRulesByGameId(long gameId)
+    {
+        return Ok();
     }
 }

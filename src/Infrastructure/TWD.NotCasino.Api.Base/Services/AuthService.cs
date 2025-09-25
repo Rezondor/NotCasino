@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
-using TWD.NotCasino.Api.Core.Dtos;
+using TWD.NotCasino.Api.Core.Dtos.Users;
 using TWD.NotCasino.Api.Core.Requests.User;
 using TWD.NotCasino.Api.Core.Responses.User;
 using TWD.NotCasino.Api.Core.Services;

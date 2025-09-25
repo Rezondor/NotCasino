@@ -1,5 +1,4 @@
 ﻿using TWD.NotCasino.Core.Entities.Base;
-using TWD.NotCasino.Core.Enums;
 
 namespace TWD.NotCasino.Core.Entities;
 
@@ -9,9 +8,9 @@ namespace TWD.NotCasino.Core.Entities;
 public class Server : BaseEntity
 {
     /// <summary>
-    /// Сервер
+    /// Название
     /// </summary>
-    public ServerNames ServerName { get; set; }
+    public string Name { get; set; } = null!;
 
     /// <summary>
     /// Количество монет

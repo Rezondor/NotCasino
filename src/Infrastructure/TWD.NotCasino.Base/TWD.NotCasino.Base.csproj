@@ -17,4 +17,8 @@
     <ProjectReference Include="..\TWD.NotCasino.Domain.Base\TWD.NotCasino.Domain.Base.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Queries\Servers\" />
+  </ItemGroup>
+
 </Project>
