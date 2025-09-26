@@ -24,6 +24,13 @@ public class ServerController(
         return Ok(mapper.Map<IReadOnlyList<ServerResponses>>(result));
     }
 
+    [HttpGet(nameof(GetServerById) + "/{id}")]
+    public async Task<IActionResult> GetServerById([FromRoute] long id, CancellationToken cancellationToken)
+    {
+        var result = await mediator.Send(new GetServerByIdQuery { Id = id }, cancellationToken);
+        return Ok(mapper.Map<ServerResponses>(result));
+    }
+
     [HttpPost(nameof(AddServer))]
     [Authorize(Roles = nameof(UserRoles.Admin))]
     public async Task<IActionResult> AddServer(ServerRequest newServer, CancellationToken cancellationToken)

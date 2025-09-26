@@ -23,4 +23,9 @@ public class ServerRepository(NotCasinoContext context) : IServerRepository
     {
         return await context.Servers.ToListAsync(cancellationToken);
     }
+
+    public async Task<Server?> GetServerById(long id, CancellationToken cancellationToken)
+    {
+        return await context.Servers.FirstOrDefaultAsync(s => s.Id == id, cancellationToken);
+    }
 }

@@ -20,4 +20,9 @@ public interface IServerRepository
     /// </summary>
     public Task<IReadOnlyList<Server>> GetAllServers(CancellationToken cancellationToken); 
 
+    /// <summary>
+    /// Получение сервера по Id
+    /// </summary>
+    public Task<Server?> GetServerById(long id, CancellationToken cancellationToken); 
+
 }
