@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using TWD.NotCasino.Api.Core.Requests.User;
-using TWD.NotCasino.Api.Core.Responses.User;
+using TWD.NotCasino.Api.Core.Requests.Users;
+using TWD.NotCasino.Api.Core.Responses.Users;
 using TWD.NotCasino.Api.Core.Services;
 
 namespace TWD.NotCasino.Api.Controllers;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TWD.NotCasino.Api.Core.Enums.User;
+using TWD.NotCasino.Api.Core.Enums.Users;
+using TWD.NotCasino.Api.Core.Requests.Games;
 
 namespace TWD.NotCasino.Api.Controllers;
 
@@ -34,7 +35,7 @@ public class GameController : ControllerBase
 
     [HttpPost(nameof(Add))]
     [Authorize(Roles = nameof(UserRoles.Admin))]
-    public async Task<IActionResult> Add(CancellationToken cancellationToken)
+    public async Task<IActionResult> Add(AddGameRequest addGame, CancellationToken cancellationToken)
     {
         return Ok();
     }

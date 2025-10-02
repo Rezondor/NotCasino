@@ -1,8 +1,11 @@
 ﻿using TWD.NotCasino.Api.Core.Dtos.Users;
-using TWD.NotCasino.Api.Core.Enums.User;
+using TWD.NotCasino.Api.Core.Enums.Users;
 
 namespace TWD.NotCasino.Api.Core.Services;
 
+/// <summary>
+/// Получение информации по текущему пользователю
+/// </summary>
 public interface ICurrentUserService
 {
     /// <summary>

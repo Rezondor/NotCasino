@@ -9,7 +9,7 @@ public class GetServerByIdQueryHandler(INotCasinoRepositoryManager repositoryMan
 {
     public async Task<ServerResult> Handle(GetServerByIdQuery request, CancellationToken cancellationToken)
     {
-        var server = await repositoryManager.ServerRepository.GetServerById(request.Id, cancellationToken);
+        var server = await repositoryManager.ServerRepository.GetByIdAsync(request.Id, cancellationToken);
 
         return server is null
             ? throw new NullReferenceException($"Сервер с Id = {request.Id} не найден")

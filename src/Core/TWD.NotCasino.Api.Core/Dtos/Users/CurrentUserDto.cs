@@ -1,4 +1,4 @@
-﻿using TWD.NotCasino.Api.Core.Enums.User;
+﻿using TWD.NotCasino.Api.Core.Enums.Users;
 
 namespace TWD.NotCasino.Api.Core.Dtos.Users;
 

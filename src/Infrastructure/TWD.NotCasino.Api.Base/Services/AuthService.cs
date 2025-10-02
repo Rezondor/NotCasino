@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using TWD.NotCasino.Api.Core.Dtos.Users;
-using TWD.NotCasino.Api.Core.Requests.User;
-using TWD.NotCasino.Api.Core.Responses.User;
+using TWD.NotCasino.Api.Core.Requests.Users;
+using TWD.NotCasino.Api.Core.Responses.Users;
 using TWD.NotCasino.Api.Core.Services;
 using TWD.NotCasino.Application.Commands.User;
 using TWD.NotCasino.Application.Queries.User;
@@ -18,7 +18,7 @@ using TWD.NotCasino.Core.Entities;
 namespace TWD.NotCasino.Api.Base.Services;
 
 public class AuthService(
-    IPasswordHasher<ForHashModel> hasher,
+    IPasswordHasher<ForHashDto> hasher,
     IHttpContextAccessor httpContextAccessor,
     IMapper mapper,
     IMediator mediator) : IAuthService
@@ -110,7 +110,7 @@ public class AuthService(
 
     private void PrepareRequest(RegistrationRequest registrationRequest)
     {
-        var hashModel = new ForHashModel
+        var hashModel = new ForHashDto
         {
             Email = registrationRequest.Email,
             Password = registrationRequest.Password,
@@ -123,7 +123,7 @@ public class AuthService(
 
     private bool CheckPassword(LoginRequest loginRequest, string passHash)
     {
-        var hashModel = new ForHashModel
+        var hashModel = new ForHashDto
         {
             Email = loginRequest.Email,
             Password = loginRequest.Password,

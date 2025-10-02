@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Api.Core.Enums.User;
+﻿namespace TWD.NotCasino.Api.Core.Enums.Users;
 
 /// <summary>
 /// Роли пользователей

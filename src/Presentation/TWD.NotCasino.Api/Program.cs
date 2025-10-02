@@ -27,7 +27,7 @@ public class Program
 
         builder.Services.AddHttpContextAccessor();
 
-        builder.Services.AddScoped<IPasswordHasher<ForHashModel>, PasswordHasher<ForHashModel>>();
+        builder.Services.AddScoped<IPasswordHasher<ForHashDto>, PasswordHasher<ForHashDto>>();
         builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<INotCasinoRepositoryManager, NotCasinoRepositoryManager>();

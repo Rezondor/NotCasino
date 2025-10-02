@@ -2,9 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TWD.NotCasino.Api.Core.Dtos.Servers;
-using TWD.NotCasino.Api.Core.Enums.User;
+using TWD.NotCasino.Api.Core.Enums.Users;
 using TWD.NotCasino.Api.Core.Requests.Servers;
+using TWD.NotCasino.Api.Core.Responses.Servers;
 using TWD.NotCasino.Application.Commands.Servers;
 using TWD.NotCasino.Application.Queries.Servers;
 

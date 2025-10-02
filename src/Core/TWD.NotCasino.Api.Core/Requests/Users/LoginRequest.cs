@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Api.Core.Requests.User;
+﻿namespace TWD.NotCasino.Api.Core.Requests.Users;
 
 public class LoginRequest
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TWD.NotCasino.Api.Core.Requests.User;
+namespace TWD.NotCasino.Api.Core.Requests.Users;
 
 /// <summary>
 /// Регистрационная модель 

@@ -3,7 +3,7 @@
 /// <summary>
 /// Модель для хеширования пароля
 /// </summary>
-public class ForHashModel
+public class ForHashDto
 {
     /// <summary>
     /// Логин

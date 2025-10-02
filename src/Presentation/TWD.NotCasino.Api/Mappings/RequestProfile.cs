@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
-using TWD.NotCasino.Api.Core.Dtos.Servers;
+using TWD.NotCasino.Api.Core.Enums.Users;
 using TWD.NotCasino.Api.Core.Requests.Servers;
-using TWD.NotCasino.Api.Core.Requests.User;
-using TWD.NotCasino.Api.Core.Responses.User;
+using TWD.NotCasino.Api.Core.Requests.Users;
+using TWD.NotCasino.Api.Core.Responses.Servers;
+using TWD.NotCasino.Api.Core.Responses.Users;
 using TWD.NotCasino.Application.Commands.Servers;
 using TWD.NotCasino.Application.Commands.User;
 using TWD.NotCasino.Application.Queries.User;
@@ -23,7 +24,7 @@ public class RequestProfile : Profile
 
     private void MapEnums()
     {
-        CreateMap<UserRoles, Core.Enums.User.UserRoles>().ReverseMap();
+        CreateMap<UserRoles, Core.Enums.Users.UserRoles>().ReverseMap();
     }
 
     private void MapRequestsToCommands()

@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Api.Core.Dtos.Servers;
+﻿namespace TWD.NotCasino.Api.Core.Requests.Servers;
 
 public class ServerRequest
 {

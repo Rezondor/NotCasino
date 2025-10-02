@@ -9,7 +9,7 @@ public class GetAllServersQueryHandler(INotCasinoRepositoryManager repositoryMan
 {
     public async Task<IReadOnlyList<ServerResult>> Handle(GetAllServersQuery request, CancellationToken cancellationToken)
     {
-        var servers = await repositoryManager.ServerRepository.GetAllServers(cancellationToken);
+        var servers = await repositoryManager.ServerRepository.GetAllServersAsync(cancellationToken);
         return [.. servers.Select(x=>new ServerResult
         {
             Id = x.Id,

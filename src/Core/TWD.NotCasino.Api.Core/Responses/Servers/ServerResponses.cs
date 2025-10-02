@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Api.Core.Requests.Servers;
+﻿namespace TWD.NotCasino.Api.Core.Responses.Servers;
 
 /// <summary>
 /// Информация по серверу
