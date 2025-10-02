@@ -9,6 +9,7 @@ public class NotCasinoContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Account> Accounts { get; set; }
+    public DbSet<Game> Games { get; set; }
     public DbSet<GameLog> GameLogs { get; set; }
     public DbSet<GameSetting> GameSettings { get; set; }
     public DbSet<ReloadAccount> ReloadAccounts { get; set; }

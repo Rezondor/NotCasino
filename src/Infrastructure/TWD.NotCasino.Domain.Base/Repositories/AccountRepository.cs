@@ -7,7 +7,7 @@ namespace TWD.NotCasino.Domain.Base.Repositories;
 
 public class AccountRepository(NotCasinoContext context) : IAccountRepository
 {
-    public async Task<Account> GetUserAccountByUserId(long userId, CancellationToken cancellationToken)
+    public async Task<Account> GetUserAccountByUserIdForUpdateAsync(long userId, CancellationToken cancellationToken)
         => await context.Accounts
             .TagWith("FOR UPDATE")
             .Where(x => x.UserId == userId)

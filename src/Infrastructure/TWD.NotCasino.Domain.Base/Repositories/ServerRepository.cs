@@ -7,25 +7,18 @@ namespace TWD.NotCasino.Domain.Base.Repositories;
 
 public class ServerRepository(NotCasinoContext context) : IServerRepository
 {
-    public async Task<Server> AddServerAsync(string name, decimal coins, CancellationToken cancellationToken)
+    public async Task AddAsync(Server server, CancellationToken cancellationToken)
     {
-        var newServer = new Server
-        {
-            Name = name,
-            Coins = coins,
-        };
-
-        await context.Servers.AddAsync(newServer, cancellationToken);
-        return newServer;
+        await context.Servers.AddAsync(server, cancellationToken);
     }
 
-    public async Task<IReadOnlyList<Server>> GetAllServers(CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<Server>> GetAllServersAsync(CancellationToken cancellationToken)
     {
-        return await context.Servers.ToListAsync(cancellationToken);
+        return await context.Servers.AsNoTracking().ToListAsync(cancellationToken);
     }
 
-    public async Task<Server?> GetServerById(long id, CancellationToken cancellationToken)
+    public async Task<Server?> GetByIdAsync(long id, CancellationToken cancellationToken)
     {
-        return await context.Servers.FirstOrDefaultAsync(s => s.Id == id, cancellationToken);
+        return await context.Servers.AsNoTracking().FirstOrDefaultAsync(s => s.Id == id, cancellationToken);
     }
 }

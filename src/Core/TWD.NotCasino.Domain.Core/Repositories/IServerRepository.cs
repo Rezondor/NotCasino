@@ -10,19 +10,16 @@ public interface IServerRepository
     /// <summary>
     /// Добавление сервера
     /// </summary>
-    /// <param name="name">Наименование</param>
-    /// <param name="coins">Количество стартовых монет</param>
-    /// <returns>Сервер с Id</returns>
-    public Task<Server> AddServerAsync(string name, decimal coins, CancellationToken cancellationToken);
+    public Task AddAsync(Server server, CancellationToken cancellationToken);
 
     /// <summary>
     /// Получение всех серверов
     /// </summary>
-    public Task<IReadOnlyList<Server>> GetAllServers(CancellationToken cancellationToken); 
+    public Task<IReadOnlyList<Server>> GetAllServersAsync(CancellationToken cancellationToken); 
 
     /// <summary>
     /// Получение сервера по Id
     /// </summary>
-    public Task<Server?> GetServerById(long id, CancellationToken cancellationToken); 
+    public Task<Server?> GetByIdAsync(long id, CancellationToken cancellationToken); 
 
 }

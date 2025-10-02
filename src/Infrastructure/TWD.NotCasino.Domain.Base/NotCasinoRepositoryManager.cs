@@ -11,6 +11,8 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
 {
     private IUserRepository? _userRepository = null;
     private IServerRepository? _serverRepository = null;
+    private IAccountRepository? _accountRepository = null;
+    private IGameRepository? _gameRepository = null;
 
     public IUserRepository UserRepository { 
         get 
@@ -23,6 +25,20 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
         get 
         { 
             return _serverRepository ??= new ServerRepository(context); 
+        } 
+    }
+
+    public IAccountRepository AccountRepository { 
+        get 
+        { 
+            return _accountRepository ??= new AccountRepository(context); 
+        } 
+    }
+
+    public IGameRepository GameRepository { 
+        get 
+        { 
+            return _gameRepository ??= new GameRepository(context); 
         } 
     }
 

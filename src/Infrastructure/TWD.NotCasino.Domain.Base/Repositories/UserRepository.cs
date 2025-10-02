@@ -56,7 +56,7 @@ public class UserRepository(NotCasinoContext context) : IUserRepository
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task InsertUserAsync(User user, CancellationToken cancellationToken)
+    public async Task AddAsync(User user, CancellationToken cancellationToken)
     {
         await context.Users.AddAsync(user, cancellationToken);
     }

@@ -32,4 +32,9 @@ public class Game : BaseEntity
     /// Сервер
     /// </summary>
     public Server Server { get; set; } = null!;
+
+    /// <summary>
+    /// Сервер
+    /// </summary>
+    public ICollection<GameSetting> GameSettings { get; set; } = [];
 }

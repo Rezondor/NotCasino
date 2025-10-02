@@ -13,6 +13,7 @@ public class ReloadAccountSetup : ISetup
         modelBuilder.Entity<ReloadAccount>().ToTable(t => t.HasComment("Обновления аккаунтов"));
 
         modelBuilder.Entity<ReloadAccount>().Property(x => x.UserId).HasComment("Id пользователя");
+        modelBuilder.Entity<ReloadAccount>().Property(x => x.CreateDate).HasComment("Дата обновления аккаунта").HasDefaultValueSql("now() at time zone 'utc'"); ;
         modelBuilder.Entity<ReloadAccount>().Property(x => x.CreateDate).HasComment("Дата обновления аккаунта");
     }
 }
