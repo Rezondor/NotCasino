@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Threading;
 using TWD.NotCasino.Core.Entities;
 using TWD.NotCasino.Core.Models.User;
 using TWD.NotCasino.Domain.Core;
@@ -66,8 +65,8 @@ public class UserRepository(NotCasinoContext context) : IUserRepository
         return await context.Users
                 .TagWith("FOR UPDATE")
                 .Where(x => x.Id == id)
-                .Include(x=>x.Account)
-                .Include(x=>x.ReloadAccounts)
+                .Include(x => x.Account)
+                .Include(x => x.ReloadAccounts)
                 .FirstAsync(cancellationToken);
     }
 }

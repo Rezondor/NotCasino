@@ -8,7 +8,7 @@ namespace TWD.NotCasino.Domain.Core.Repositories;
 public interface IAccountRepository
 {
     /// <summary>
-    /// Получение Аккаунта пользователя
+    /// Получение Аккаунта пользователя (Для обновления)
     /// </summary>
     public Task<Account> GetUserAccountByUserIdForUpdateAsync(long userId, CancellationToken cancellationToken);
 }

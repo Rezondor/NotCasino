@@ -21,14 +21,14 @@ public class ServerController(
     public async Task<IActionResult> GetAllServers(CancellationToken cancellationToken)
     {
         var result = await mediator.Send(new GetAllServersQuery(), cancellationToken);
-        return Ok(mapper.Map<IReadOnlyList<ServerResponses>>(result));
+        return Ok(mapper.Map<IReadOnlyList<ServerResponse>>(result));
     }
 
     [HttpGet(nameof(GetServerById) + "/{id}")]
     public async Task<IActionResult> GetServerById([FromRoute] long id, CancellationToken cancellationToken)
     {
         var result = await mediator.Send(new GetServerByIdQuery { Id = id }, cancellationToken);
-        return Ok(mapper.Map<ServerResponses>(result));
+        return Ok(mapper.Map<ServerResponse>(result));
     }
 
     [HttpPost(nameof(AddServer))]
@@ -38,6 +38,6 @@ public class ServerController(
         var command = mapper.Map<AddServerCommand>(newServer);
         var result = await mediator.Send(command, cancellationToken);
 
-        return Ok(mapper.Map<ServerResponses>(result));
+        return Ok(mapper.Map<ServerResponse>(result));
     }
 }

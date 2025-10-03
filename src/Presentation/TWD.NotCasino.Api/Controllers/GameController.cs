@@ -1,14 +1,24 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TWD.NotCasino.Api.Core.Enums.Users;
 using TWD.NotCasino.Api.Core.Requests.Games;
+using TWD.NotCasino.Api.Core.Requests.GameSettings;
+using TWD.NotCasino.Api.Core.Responses.Games;
+using TWD.NotCasino.Api.Core.Responses.Servers;
+using TWD.NotCasino.Application.Commands.Games;
+using TWD.NotCasino.Application.Commands.GameSettings;
+using TWD.NotCasino.Application.Commands.Servers;
 
 namespace TWD.NotCasino.Api.Controllers;
 
 [Route("api/[controller]")]
 [Authorize]
 [ApiController]
-public class GameController : ControllerBase
+public class GameController(
+    IMapper mapper,
+    IMediator mediator) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> PlayOneArmedBandit([FromQuery] int bet)
@@ -34,9 +44,22 @@ public class GameController : ControllerBase
     }
 
     [HttpPost(nameof(Add))]
-    [Authorize(Roles = nameof(UserRoles.Admin))]
+    //[Authorize(Roles = nameof(UserRoles.Admin))]
     public async Task<IActionResult> Add(AddGameRequest addGame, CancellationToken cancellationToken)
     {
+        var command = mapper.Map<AddGameCommand>(addGame);
+        var result = await mediator.Send(command, cancellationToken);
+
+        return Ok(mapper.Map<GameResponse>(result));
+    }
+
+    [HttpPost(nameof(UpdateGameSettings))]
+    //[Authorize(Roles = nameof(UserRoles.Admin))]
+    public async Task<IActionResult> UpdateGameSettings(CUDGameSettingRequest settingRequest, CancellationToken cancellationToken)
+    {
+        var command = mapper.Map<CUDGameSettingCommand>(settingRequest);
+        await mediator.Send(command, cancellationToken);
+
         return Ok();
     }
 

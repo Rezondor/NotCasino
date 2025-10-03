@@ -13,33 +13,46 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
     private IServerRepository? _serverRepository = null;
     private IAccountRepository? _accountRepository = null;
     private IGameRepository? _gameRepository = null;
+    private IGameSettingRepository? _gameSettingRepository = null;
 
-    public IUserRepository UserRepository { 
-        get 
-        { 
-            return _userRepository ??= new UserRepository(context); 
-        } 
+    public IUserRepository UserRepository
+    {
+        get
+        {
+            return _userRepository ??= new UserRepository(context);
+        }
     }
 
-    public IServerRepository ServerRepository { 
-        get 
-        { 
-            return _serverRepository ??= new ServerRepository(context); 
-        } 
+    public IServerRepository ServerRepository
+    {
+        get
+        {
+            return _serverRepository ??= new ServerRepository(context);
+        }
     }
 
-    public IAccountRepository AccountRepository { 
-        get 
-        { 
-            return _accountRepository ??= new AccountRepository(context); 
-        } 
+    public IAccountRepository AccountRepository
+    {
+        get
+        {
+            return _accountRepository ??= new AccountRepository(context);
+        }
     }
 
-    public IGameRepository GameRepository { 
-        get 
-        { 
-            return _gameRepository ??= new GameRepository(context); 
-        } 
+    public IGameRepository GameRepository
+    {
+        get
+        {
+            return _gameRepository ??= new GameRepository(context);
+        }
+    }
+
+    public IGameSettingRepository GameSettingRepository
+    {
+        get
+        {
+            return _gameSettingRepository ??= new GameSettingRepository(context);
+        }
     }
 
     private IDbContextTransaction? _transaction = null;
@@ -60,9 +73,9 @@ public class NotCasinoRepositoryManager(NotCasinoContext context) : INotCasinoRe
     /// </summary>
     public async Task CommitTransactionAsync(CancellationToken cancellationToken)
     {
-        if (_transaction == null) 
+        if (_transaction == null)
             throw new NullReferenceException("The transaction is not open");
-        
+
         await _transaction.CommitAsync(cancellationToken);
         await _transaction.DisposeAsync();
         _transaction = null;

@@ -1,15 +1,22 @@
 ﻿using AutoMapper;
-using TWD.NotCasino.Api.Core.Enums.Users;
+using TWD.NotCasino.Api.Core.Dtos.Games;
+using TWD.NotCasino.Api.Core.Requests.Games;
+using TWD.NotCasino.Api.Core.Requests.GameSettings;
 using TWD.NotCasino.Api.Core.Requests.Servers;
 using TWD.NotCasino.Api.Core.Requests.Users;
+using TWD.NotCasino.Api.Core.Responses.Games;
 using TWD.NotCasino.Api.Core.Responses.Servers;
 using TWD.NotCasino.Api.Core.Responses.Users;
+using TWD.NotCasino.Application.Commands.Games;
+using TWD.NotCasino.Application.Commands.GameSettings;
 using TWD.NotCasino.Application.Commands.Servers;
 using TWD.NotCasino.Application.Commands.User;
 using TWD.NotCasino.Application.Queries.User;
+using TWD.NotCasino.Application.Results.Games;
 using TWD.NotCasino.Application.Results.Servers;
 using TWD.NotCasino.Application.Results.User;
 using TWD.NotCasino.Core.Enums.User;
+using TWD.NotCasino.Core.Models.Games;
 
 namespace TWD.NotCasino.Api.Mappings;
 
@@ -19,6 +26,7 @@ public class RequestProfile : Profile
     {
         MapRequestsToCommands();
         MapResultsToResponses();
+        MapDtosToModels();
         MapEnums();
     }
 
@@ -32,11 +40,19 @@ public class RequestProfile : Profile
         CreateMap<RegistrationRequest, AddUserCommand>();
         CreateMap<LoginRequest, GetUserWithPasswordQuery>();
         CreateMap<ServerRequest, AddServerCommand>();
+        CreateMap<AddGameRequest, AddGameCommand>();
+        CreateMap<CUDGameSettingRequest, CUDGameSettingCommand>();
     }
 
     private void MapResultsToResponses()
     {
         CreateMap<UserResult, UserInfoResponse>();
-        CreateMap<ServerResult, ServerResponses>();
+        CreateMap<ServerResult, ServerResponse>();
+        CreateMap<GameResult, GameResponse>();
+    }
+
+    private void MapDtosToModels()
+    {
+        CreateMap<GameSettingDto, GameSetting>().ReverseMap();
     }
 }

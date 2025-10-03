@@ -3,7 +3,7 @@
 /// <summary>
 /// Информация по серверу
 /// </summary>
-public class ServerResponses
+public class ServerResponse
 {
     /// <summary>
     /// Id сервера
