@@ -10,11 +10,11 @@ using TWD.NotCasino.Api.Core.Responses.Users;
 using TWD.NotCasino.Application.Commands.Games;
 using TWD.NotCasino.Application.Commands.GameSettings;
 using TWD.NotCasino.Application.Commands.Servers;
-using TWD.NotCasino.Application.Commands.User;
-using TWD.NotCasino.Application.Queries.User;
+using TWD.NotCasino.Application.Commands.Users;
+using TWD.NotCasino.Application.Queries.Users;
 using TWD.NotCasino.Application.Results.Games;
 using TWD.NotCasino.Application.Results.Servers;
-using TWD.NotCasino.Application.Results.User;
+using TWD.NotCasino.Application.Results.Users;
 using TWD.NotCasino.Core.Enums.User;
 using TWD.NotCasino.Core.Models.Games;
 

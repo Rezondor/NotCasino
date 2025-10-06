@@ -1,6 +1,6 @@
 ﻿using TWD.NotCasino.Core.Enums.User;
 
-namespace TWD.NotCasino.Core.Models.User;
+namespace TWD.NotCasino.Core.Models.Users;
 
 /// <summary>
 /// Поверхностная информация о пользователе

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TWD.NotCasino.Core.Entities;
-using TWD.NotCasino.Core.Models.User;
+using TWD.NotCasino.Core.Models.Users;
 using TWD.NotCasino.Domain.Core;
 using TWD.NotCasino.Domain.Core.Repositories;
 

@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using TWD.NotCasino.Application.Commands.User;
-using TWD.NotCasino.Application.Results.User;
+using TWD.NotCasino.Application.Commands.Users;
+using TWD.NotCasino.Application.Results.Users;
 using TWD.NotCasino.Core.Entities;
 using TWD.NotCasino.Domain.Core.Repositories;
 

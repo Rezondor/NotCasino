@@ -1,4 +1,4 @@
-﻿namespace TWD.NotCasino.Application.Results.User;
+﻿namespace TWD.NotCasino.Application.Results.Users;
 
 /// <summary>
 /// Информация о пользователе с паролем

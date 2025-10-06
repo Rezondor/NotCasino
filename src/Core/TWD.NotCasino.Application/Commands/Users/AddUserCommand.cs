@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using TWD.NotCasino.Application.Results.User;
+using TWD.NotCasino.Application.Results.Users;
 
-namespace TWD.NotCasino.Application.Commands.User;
+namespace TWD.NotCasino.Application.Commands.Users;
 
 /// <summary>
 /// Добавление пользователя

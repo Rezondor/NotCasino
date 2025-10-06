@@ -1,5 +1,5 @@
 ﻿using TWD.NotCasino.Core.Entities;
-using TWD.NotCasino.Core.Models.User;
+using TWD.NotCasino.Core.Models.Users;
 
 namespace TWD.NotCasino.Domain.Core.Repositories;
 

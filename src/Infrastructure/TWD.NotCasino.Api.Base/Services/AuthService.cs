@@ -10,8 +10,8 @@ using TWD.NotCasino.Api.Core.Dtos.Users;
 using TWD.NotCasino.Api.Core.Requests.Users;
 using TWD.NotCasino.Api.Core.Responses.Users;
 using TWD.NotCasino.Api.Core.Services;
-using TWD.NotCasino.Application.Commands.User;
-using TWD.NotCasino.Application.Queries.User;
+using TWD.NotCasino.Application.Commands.Users;
+using TWD.NotCasino.Application.Queries.Users;
 using TWD.NotCasino.Application.Results.User;
 using TWD.NotCasino.Core.Entities;
 
