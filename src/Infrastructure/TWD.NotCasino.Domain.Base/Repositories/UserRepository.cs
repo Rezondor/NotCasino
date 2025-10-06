@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Threading;
 using TWD.NotCasino.Core.Entities;
 using TWD.NotCasino.Core.Models.User;
 using TWD.NotCasino.Domain.Core;
@@ -56,7 +55,7 @@ public class UserRepository(NotCasinoContext context) : IUserRepository
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task InsertUserAsync(User user, CancellationToken cancellationToken)
+    public async Task AddAsync(User user, CancellationToken cancellationToken)
     {
         await context.Users.AddAsync(user, cancellationToken);
     }
@@ -66,8 +65,8 @@ public class UserRepository(NotCasinoContext context) : IUserRepository
         return await context.Users
                 .TagWith("FOR UPDATE")
                 .Where(x => x.Id == id)
-                .Include(x=>x.Account)
-                .Include(x=>x.ReloadAccounts)
+                .Include(x => x.Account)
+                .Include(x => x.ReloadAccounts)
                 .FirstAsync(cancellationToken);
     }
 }

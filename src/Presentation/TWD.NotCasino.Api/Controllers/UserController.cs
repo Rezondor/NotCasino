@@ -12,12 +12,12 @@ namespace TWD.NotCasino.Api.Controllers;
 public class UserController(ICurrentUserService currentUserService, IMediator mediator) : ControllerBase
 {
     [HttpPost(nameof(ReloadUserBalance))]
-    public async Task<IActionResult> ReloadUserBalance()
+    public async Task<IActionResult> ReloadUserBalance(CancellationToken cancellationToken)
     {
         await mediator.Send(new ReloadUserBalanceCommand
         {
             UserId = currentUserService.GetUserId() ?? throw new Exception($"UserId is incorrect."),
-        });
+        }, cancellationToken);
         return Ok();
     }
 }

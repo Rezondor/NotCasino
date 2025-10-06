@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using TWD.NotCasino.Api.Core.Dtos.Users;
-using TWD.NotCasino.Api.Core.Enums.User;
+using TWD.NotCasino.Api.Core.Enums.Users;
 using TWD.NotCasino.Api.Core.Services;
 
 namespace TWD.NotCasino.Api.Base.Services;

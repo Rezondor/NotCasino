@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
-using TWD.NotCasino.Api.Core.Dtos;
-using TWD.NotCasino.Api.Core.Requests.User;
-using TWD.NotCasino.Api.Core.Responses.User;
+using TWD.NotCasino.Api.Core.Dtos.Users;
+using TWD.NotCasino.Api.Core.Requests.Users;
+using TWD.NotCasino.Api.Core.Responses.Users;
 using TWD.NotCasino.Api.Core.Services;
 using TWD.NotCasino.Application.Commands.User;
 using TWD.NotCasino.Application.Queries.User;
@@ -18,7 +18,7 @@ using TWD.NotCasino.Core.Entities;
 namespace TWD.NotCasino.Api.Base.Services;
 
 public class AuthService(
-    IPasswordHasher<ForHashModel> hasher,
+    IPasswordHasher<ForHashDto> hasher,
     IHttpContextAccessor httpContextAccessor,
     IMapper mapper,
     IMediator mediator) : IAuthService
@@ -27,7 +27,7 @@ public class AuthService(
     private readonly static string _passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$";
     private readonly HttpContext httpContext = httpContextAccessor.HttpContext;
 
-    public async Task<UserInfoResponse> RegisterAsync(RegistrationRequest registrationRequest)
+    public async Task<UserInfoResponse> RegisterAsync(RegistrationRequest registrationRequest, CancellationToken cancellationToken)
     {
         if (!ValidateRegisterRequest(registrationRequest))
         {
@@ -37,7 +37,7 @@ public class AuthService(
         PrepareRequest(registrationRequest);
 
         var command = mapper.Map<AddUserCommand>(registrationRequest);
-        var user = await mediator.Send(command);
+        var user = await mediator.Send(command, cancellationToken);
 
         var response = mapper.Map<UserInfoResponse>(user);
 
@@ -46,10 +46,10 @@ public class AuthService(
         return response;
     }
 
-    public async Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest)
+    public async Task<UserInfoResponse> LoginAsync(LoginRequest loginRequest, CancellationToken cancellationToken)
     {
         var command = mapper.Map<GetUserWithPasswordQuery>(loginRequest);
-        var user = await mediator.Send(command);
+        var user = await mediator.Send(command, cancellationToken);
 
         if (!CheckPassword(loginRequest, user.Password))
         {
@@ -110,7 +110,7 @@ public class AuthService(
 
     private void PrepareRequest(RegistrationRequest registrationRequest)
     {
-        var hashModel = new ForHashModel
+        var hashModel = new ForHashDto
         {
             Email = registrationRequest.Email,
             Password = registrationRequest.Password,
@@ -123,7 +123,7 @@ public class AuthService(
 
     private bool CheckPassword(LoginRequest loginRequest, string passHash)
     {
-        var hashModel = new ForHashModel
+        var hashModel = new ForHashDto
         {
             Email = loginRequest.Email,
             Password = loginRequest.Password,

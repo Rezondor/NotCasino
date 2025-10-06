@@ -12,7 +12,7 @@ public class ServerSetup : ISetup
         //Comments
         modelBuilder.Entity<Server>().ToTable(t => t.HasComment("Настройки серверов"));
 
-        modelBuilder.Entity<Server>().Property(x => x.ServerName).HasComment("Сервер");
+        modelBuilder.Entity<Server>().Property(x => x.Name).HasComment("Название");
         modelBuilder.Entity<Server>().Property(x => x.Coins).HasComment("Количество монет");
     }
 }

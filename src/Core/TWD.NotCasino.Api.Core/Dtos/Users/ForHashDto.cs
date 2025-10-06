@@ -1,9 +1,9 @@
-﻿namespace TWD.NotCasino.Api.Core.Dtos;
+﻿namespace TWD.NotCasino.Api.Core.Dtos.Users;
 
 /// <summary>
 /// Модель для хеширования пароля
 /// </summary>
-public class ForHashModel
+public class ForHashDto
 {
     /// <summary>
     /// Логин

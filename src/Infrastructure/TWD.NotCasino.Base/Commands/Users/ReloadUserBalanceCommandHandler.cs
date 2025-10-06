@@ -15,7 +15,7 @@ public class ReloadUserBalanceCommandHandler(INotCasinoRepositoryManager reposit
 
             var user = await repositoryManager.UserRepository.GetUserForUpdateAsync(request.UserId, cancellationToken);
             user.Account.Coins = repositoryManager.UserRepository.StartMoney;
-            user.ReloadAccounts.Add(new ReloadAccount { CreateDate = DateTime.UtcNow});
+            user.ReloadAccounts.Add(new ReloadAccount());
 
             await repositoryManager.SaveChangesAsync(cancellationToken);
             await repositoryManager.CommitTransactionAsync(cancellationToken);

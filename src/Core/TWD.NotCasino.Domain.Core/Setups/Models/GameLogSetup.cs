@@ -14,10 +14,9 @@ public class GameLogSetup : ISetup
 
         modelBuilder.Entity<GameLog>().Property(x => x.Bet).HasComment("Ставка");
         modelBuilder.Entity<GameLog>().Property(x => x.GameData).HasComment("Доп информация об игре");
-        modelBuilder.Entity<GameLog>().Property(x => x.GameType).HasComment("Тип игры");
         modelBuilder.Entity<GameLog>().Property(x => x.ReloadAccountId).HasComment("Id обновления аккаунта");
         modelBuilder.Entity<GameLog>().Property(x => x.Result).HasComment("Результат игры");
-        modelBuilder.Entity<GameLog>().Property(x => x.ServerId).HasComment("Id сервера");
+        modelBuilder.Entity<GameLog>().Property(x => x.GameId).HasComment("Id игры");
         modelBuilder.Entity<GameLog>().Property(x => x.Win).HasComment("Выигрыш");
     }
 }

@@ -1,7 +1,10 @@
-﻿using TWD.NotCasino.Api.Core.Enums.User;
+﻿using TWD.NotCasino.Api.Core.Enums.Users;
 
-namespace TWD.NotCasino.Api.Core.Responses.User;
+namespace TWD.NotCasino.Api.Core.Responses.Users;
 
+/// <summary>
+/// Информация по пользователю
+/// </summary>
 public class UserInfoResponse
 {
     /// <summary>

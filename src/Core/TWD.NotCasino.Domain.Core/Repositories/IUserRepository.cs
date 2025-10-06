@@ -4,7 +4,7 @@ using TWD.NotCasino.Core.Models.User;
 namespace TWD.NotCasino.Domain.Core.Repositories;
 
 /// <summary>
-/// Репозиторий для таблицы пользователей
+/// Репозиторий для таблицы Пользователи
 /// </summary>
 public interface IUserRepository
 {
@@ -16,7 +16,7 @@ public interface IUserRepository
     /// <summary>
     /// Добавление пользователя вместе с аккаунтом и первым обновлением аккаунта
     /// </summary>
-    public Task InsertUserAsync(User user, CancellationToken cancellationToken);
+    public Task AddAsync(User user, CancellationToken cancellationToken);
 
     /// <summary>
     /// Получение активного пользователя по почте

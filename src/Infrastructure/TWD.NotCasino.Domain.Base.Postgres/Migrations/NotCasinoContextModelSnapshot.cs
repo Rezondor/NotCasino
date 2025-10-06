@@ -56,6 +56,44 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Game", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasComment("Id записи");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("IsAvailable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasComment("Активна ли игра");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasComment("Наименование игры");
+
+                    b.Property<long>("ServerId")
+                        .HasColumnType("bigint")
+                        .HasComment("Id сервера");
+
+                    b.Property<byte>("Type")
+                        .HasColumnType("smallint")
+                        .HasComment("Тип игры");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServerId");
+
+                    b.ToTable("Games", t =>
+                        {
+                            t.HasComment("Игры");
+                        });
+                });
+
             modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameLog", b =>
                 {
                     b.Property<long>("Id")
@@ -65,8 +103,8 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<int>("Bet")
-                        .HasColumnType("integer")
+                    b.Property<decimal>("Bet")
+                        .HasColumnType("numeric")
                         .HasComment("Ставка");
 
                     b.Property<string>("GameData")
@@ -74,9 +112,9 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         .HasColumnType("text")
                         .HasComment("Доп информация об игре");
 
-                    b.Property<byte>("GameType")
-                        .HasColumnType("smallint")
-                        .HasComment("Тип игры");
+                    b.Property<long>("GameId")
+                        .HasColumnType("bigint")
+                        .HasComment("Id игры");
 
                     b.Property<long>("ReloadAccountId")
                         .HasColumnType("bigint")
@@ -86,19 +124,15 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         .HasColumnType("smallint")
                         .HasComment("Результат игры");
 
-                    b.Property<long>("ServerId")
-                        .HasColumnType("bigint")
-                        .HasComment("Id сервера");
-
-                    b.Property<int>("Win")
-                        .HasColumnType("integer")
+                    b.Property<decimal>("Win")
+                        .HasColumnType("numeric")
                         .HasComment("Выигрыш");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ReloadAccountId");
+                    b.HasIndex("GameId");
 
-                    b.HasIndex("ServerId");
+                    b.HasIndex("ReloadAccountId");
 
                     b.ToTable("GameLogs", t =>
                         {
@@ -115,17 +149,13 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
+                    b.Property<long>("GameId")
+                        .HasColumnType("bigint")
+                        .HasComment("Id игры");
+
                     b.Property<byte>("GameSettingType")
                         .HasColumnType("smallint")
                         .HasComment("Тип настройки");
-
-                    b.Property<byte>("GameType")
-                        .HasColumnType("smallint")
-                        .HasComment("Тип игры");
-
-                    b.Property<long>("ServerId")
-                        .HasColumnType("bigint")
-                        .HasComment("Id сервера");
 
                     b.Property<string>("Value")
                         .IsRequired()
@@ -134,7 +164,7 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServerId");
+                    b.HasIndex("GameId");
 
                     b.ToTable("GameSettings", t =>
                         {
@@ -152,7 +182,9 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("now() at time zone 'utc'")
                         .HasComment("Дата обновления аккаунта");
 
                     b.Property<long>("UserId")
@@ -184,9 +216,10 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                         .HasColumnType("numeric")
                         .HasComment("Количество монет");
 
-                    b.Property<byte>("ServerName")
-                        .HasColumnType("smallint")
-                        .HasComment("Сервер");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasComment("Название");
 
                     b.HasKey("Id");
 
@@ -255,34 +288,45 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Game", b =>
+                {
+                    b.HasOne("TWD.NotCasino.Core.Entities.Server", "Server")
+                        .WithMany("Games")
+                        .HasForeignKey("ServerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Server");
+                });
+
             modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameLog", b =>
                 {
+                    b.HasOne("TWD.NotCasino.Core.Entities.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TWD.NotCasino.Core.Entities.ReloadAccount", "ReloadAccount")
                         .WithMany()
                         .HasForeignKey("ReloadAccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TWD.NotCasino.Core.Entities.Server", "Server")
-                        .WithMany("GameLogs")
-                        .HasForeignKey("ServerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Game");
 
                     b.Navigation("ReloadAccount");
-
-                    b.Navigation("Server");
                 });
 
             modelBuilder.Entity("TWD.NotCasino.Core.Entities.GameSetting", b =>
                 {
-                    b.HasOne("TWD.NotCasino.Core.Entities.Server", "Server")
+                    b.HasOne("TWD.NotCasino.Core.Entities.Game", "Game")
                         .WithMany("GameSettings")
-                        .HasForeignKey("ServerId")
+                        .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Server");
+                    b.Navigation("Game");
                 });
 
             modelBuilder.Entity("TWD.NotCasino.Core.Entities.ReloadAccount", b =>
@@ -296,11 +340,14 @@ namespace TWD.NotCasino.Domain.Base.Postgres.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TWD.NotCasino.Core.Entities.Game", b =>
+                {
+                    b.Navigation("GameSettings");
+                });
+
             modelBuilder.Entity("TWD.NotCasino.Core.Entities.Server", b =>
                 {
-                    b.Navigation("GameLogs");
-
-                    b.Navigation("GameSettings");
+                    b.Navigation("Games");
                 });
 
             modelBuilder.Entity("TWD.NotCasino.Core.Entities.User", b =>

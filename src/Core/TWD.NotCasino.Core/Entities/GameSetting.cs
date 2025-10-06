@@ -9,14 +9,9 @@ namespace TWD.NotCasino.Core.Entities;
 public class GameSetting : BaseEntity
 {
     /// <summary>
-    /// Id сервера
+    /// Id игры
     /// </summary>
-    public long ServerId { get; set; }
-
-    /// <summary>
-    /// Тип игры
-    /// </summary>
-    public GameTypes GameType { get; set; }
+    public long GameId { get; set; }
 
     /// <summary>
     /// Тип настройки
@@ -31,5 +26,5 @@ public class GameSetting : BaseEntity
     /// <summary>
     /// Сервер
     /// </summary>
-    public Server Server { get; set; } = null!;
+    public Game Game { get; set; } = null!;
 }

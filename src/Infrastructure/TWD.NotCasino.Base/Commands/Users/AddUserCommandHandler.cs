@@ -40,7 +40,7 @@ public class AddUserCommandHandler(INotCasinoRepositoryManager repositoryManager
             ]
         };
 
-        await repositoryManager.UserRepository.InsertUserAsync(user, cancellationToken);
+        await repositoryManager.UserRepository.AddAsync(user, cancellationToken);
         await repositoryManager.SaveChangesAsync(cancellationToken);
 
         return new UserResult

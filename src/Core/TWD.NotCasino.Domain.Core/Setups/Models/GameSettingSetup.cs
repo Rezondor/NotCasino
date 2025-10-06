@@ -12,8 +12,7 @@ public class GameSettingSetup : ISetup
         //Comments
         modelBuilder.Entity<GameSetting>().ToTable(t => t.HasComment("Настройки игр"));
 
-        modelBuilder.Entity<GameSetting>().Property(x => x.ServerId).HasComment("Id сервера");
-        modelBuilder.Entity<GameSetting>().Property(x => x.GameType).HasComment("Тип игры");
+        modelBuilder.Entity<GameSetting>().Property(x => x.GameId).HasComment("Id игры");
         modelBuilder.Entity<GameSetting>().Property(x => x.GameSettingType).HasComment("Тип настройки");
         modelBuilder.Entity<GameSetting>().Property(x => x.Value).HasComment("Значение настройки");
     }
