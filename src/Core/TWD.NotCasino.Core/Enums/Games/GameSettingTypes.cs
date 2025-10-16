@@ -8,10 +8,25 @@ public enum GameSettingTypes : byte
     /// <summary>
     /// Правила
     /// </summary>
-    Rule = 0,
+    Description = 0,
 
     /// <summary>
-    /// Возврат средств
+    /// Первичный победный коэффициент
     /// </summary>
-    Rtp = 1,
+    PrimaryWinningCoefficient = 1,
+
+    /// <summary>
+    /// Вторичный победный коэффициент
+    /// </summary>
+    SecondWinningCoefficient = 2,
+
+    /// <summary>
+    /// Настройки комбинаций
+    /// </summary>
+    CombinationSets = 3,
+
+    /// <summary>
+    /// Коэффициент при проигрыше
+    /// </summary>
+    LossCoefficient = 4,
 }

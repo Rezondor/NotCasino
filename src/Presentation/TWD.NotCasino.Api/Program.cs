@@ -6,9 +6,12 @@ using TWD.NotCasino.Api.Core.Dtos.Users;
 using TWD.NotCasino.Api.Core.Services;
 using TWD.NotCasino.Api.Helpers.Extensions;
 using TWD.NotCasino.Api.Mappings;
+using TWD.NotCasino.Core.Models.Configs;
 using TWD.NotCasino.Domain.Base;
 using TWD.NotCasino.Domain.Core;
 using TWD.NotCasino.Domain.Core.Repositories;
+using TWD.NotCasino.Game.Core.Interfaces.Settings;
+using TWD.NotCasino.Games.Base.Settings;
 
 namespace TWD.NotCasino.Api;
 
@@ -29,6 +32,7 @@ public class Program
 
         builder.Services.AddScoped<IPasswordHasher<ForHashDto>, PasswordHasher<ForHashDto>>();
         builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+        builder.Services.AddScoped<ISettingsFactory, SettingsFactory>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<INotCasinoRepositoryManager, NotCasinoRepositoryManager>();
 

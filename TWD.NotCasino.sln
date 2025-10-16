@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Application",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Api.Base", "src\Infrastructure\TWD.NotCasino.Api.Base\TWD.NotCasino.Api.Base.csproj", "{838957AF-A9E2-42D7-A95C-46397811E4DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWD.NotCasino.Game.Core", "src\Core\TWD.NotCasino.Game.Core\TWD.NotCasino.Game.Core.csproj", "{77B3F7BC-6968-41FF-B3FA-3B85685ED780}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{838957AF-A9E2-42D7-A95C-46397811E4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B3F7BC-6968-41FF-B3FA-3B85685ED780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B3F7BC-6968-41FF-B3FA-3B85685ED780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B3F7BC-6968-41FF-B3FA-3B85685ED780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B3F7BC-6968-41FF-B3FA-3B85685ED780}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{132DE568-1375-4AC0-B9A3-3FA38F1E46CC} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
 		{C1F5818F-1EE3-406E-B8D2-D3E2F32ED67F} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
 		{838957AF-A9E2-42D7-A95C-46397811E4DF} = {FCD8C3A4-B70C-4DD3-8D58-EC01F6494FAD}
+		{77B3F7BC-6968-41FF-B3FA-3B85685ED780} = {C39F5F7C-2251-4C38-A2F7-E8A4829E3388}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B8916B7-953C-440B-9FEC-0477C99E61F0}
