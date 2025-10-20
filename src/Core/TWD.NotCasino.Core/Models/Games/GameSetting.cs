@@ -15,5 +15,5 @@ public class GameSetting
     /// <summary>
     /// Тип настройки
     /// </summary>
-    public GameSettingTypes Type { get; set; }
+    public long Type { get; set; }
 }

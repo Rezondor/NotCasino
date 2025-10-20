@@ -1,5 +1,4 @@
 ﻿using TWD.NotCasino.Core.Entities.Base;
-using TWD.NotCasino.Core.Enums.Games;
 
 namespace TWD.NotCasino.Core.Entities;
 
@@ -14,9 +13,9 @@ public class GameSetting : BaseEntity
     public long GameId { get; set; }
 
     /// <summary>
-    /// Тип настройки
+    /// Тип настройки (Id из GameSettingTypes)
     /// </summary>
-    public GameSettingTypes GameSettingType { get; set; }
+    public long GameSettingType { get; set; }
 
     /// <summary>
     /// Значение настройки
